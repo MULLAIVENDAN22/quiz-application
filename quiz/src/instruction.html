@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="instruction.css" />
+    <link rel="stylesheet" href="import.css" />
+    <title>Quiz Application</title>
+  </head>
+  <body>
+    <div id="main">
+      <img id="logo" src="/public/images/logo.jpeg" alt="" srcset="" />
+      <h1>Bright Campus</h1>
+      <h6>Turning Mirror Into Windows</h6>
+      <h2>Quiz instructions</h2>
+      <div id="instruction">
+        <ul>
+          <li>The quiz consists of 10 multiple-choice questions.</li>
+          <li>You have a total of 5 minutes to complete the quiz.</li>
+          <li>Read each question carefully before selecting your answer.</li>
+          <li>
+            You can navigate only to "Next" , so choose your option wisely
+          </li>
+          <li>Make sure to review your answers before submitting the quiz.</li>
+          <li>
+            Once the timer runs out, your answers will be automatically
+            submitted.
+          </li>
+          <li>Click the "Start Quiz" button to begin. Good luck!</li>
+        </ul>
+      </div>
+      <div id="button">
+        <button id="start" class="buttons">Start Quiz</button>
+      </div>
+    </div>
+    <script defer>
+      const start = document.getElementById("start");
+      start.addEventListener("click", () => {
+        window.location.href = "/src/quiz.html";
+      });
+    </script>
+  </body>
+</html>

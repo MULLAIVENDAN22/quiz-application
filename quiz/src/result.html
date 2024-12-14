@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="import.css" />
+    <title>Quiz Application</title>
+    <style>
+      .confetti {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background-color: red;
+        animation: fall 4s infinite;
+      }
+
+      #result {
+        font-size: 25px;
+        font-weight: 600;
+        text-align: center;
+        color: rgb(200, 0, 110);
+      }
+
+      #score {
+        font-size: 20px;
+        font-weight: 600;
+        margin: 15px 15px 15px 10px;
+      }
+
+      #mark {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px;
+        width: 70px;
+        height: 70px;
+        font-size: 35px;
+        font-weight: 800;
+        border: 8px solid;
+        border-radius: 50%;
+      }
+
+      #button #back {
+        background-color: #ff0062;
+        border-color: #fa0563;
+        color: white;
+      }
+
+      #button #back:hover {
+        background-color: #ed005b;
+        cursor: pointer;
+        transition-duration: 0.1s;
+      }
+
+      @keyframes fall {
+        0% {
+          transform: translateY(0);
+        }
+        100% {
+          transform: translateY(100vh);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main">
+      <img id="logo" src="/public/images/logo.jpeg" alt="" srcset="" />
+      <h1>Bright Campus</h1>
+      <h6>Turning Mirror Into Windows</h6>
+      <h2>Quiz Application</h2>
+      <div id="forms">
+        <div id="result"></div>
+        <div id="score"></div>
+        <div id="mark"></div>
+        <div id="confettiContainer"></div>
+        <audio
+          id="celebrationSound"
+          src="/public/sound/sound-effect-crowd-applause-and-cheering-237756.mp3"
+        ></audio>
+        <div id="button">
+          <button id="back" class="buttons">Back</button>
+        </div>
+      </div>
+    </div>
+    <script src="result.js" defer></script>
+  </body>
+</html>

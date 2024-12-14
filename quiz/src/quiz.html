@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="quiz.css" />
+    <link rel="stylesheet" href="import.css" />
+    <title>Quiz Application</title>
+  </head>
+  <body>
+    <div id="main">
+      <img id="logo" src="/public/images/logo.jpeg" alt="" srcset="" />
+      <h1>Bright Campus</h1>
+      <h6>Turning Mirror Into Windows</h6>
+      <h2>Quiz Application</h2>
+
+      <div id="score-timer">
+        <div id="timer">Time - 05m : 00s</div>
+        <div id="score">Score : 0 / 10</div>
+      </div>
+
+      <div id="number"></div>
+
+      <div class="question" id="quiz">
+        <div id="question_conatiner"></div>
+        <div id="option_container"></div>
+        <p id="display"></p>
+        <div id="result"></div>
+      </div>
+
+      <div id="button">
+        <button id="next" class="buttons" onclick="nextquestion()">Next</button>
+        <button id="submit" class="buttons">Submit</button>
+      </div>
+    </div>
+    <script src="quiz.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,150 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#main {
+  height: 90vh;
+  width: 65vw;
+  padding: 10px 30px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 35px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 20px;
+}
+
+#main #logo {
+  display: inline;
+  height: 70px;
+  width: auto;
+}
+
+#main h1,
+h2,
+h6 {
+  text-align: center;
+}
+
+#main h1 {
+  color: #1084a4ca;
+  font-weight: 700;
+  font-size: 40px;
+  margin-bottom: 2px;
+}
+
+#main h2 {
+  font-size: 28px;
+  font-weight: 550;
+  margin-bottom: 7px;
+}
+
+#main h6 {
+  color: #969595;
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+#score-timer {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 80%;
+  margin-bottom: 2px;
+}
+
+#number {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+#question_conatiner {
+  font-size: 23px;
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+#option_container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.options {
+  padding: 10px 300px;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  border: 1px solid rgb(81, 81, 81);
+  border-radius: 50px;
+}
+
+.options:hover {
+  background-color: rgb(221, 221, 221);
+}
+
+#display {
+  margin-top: 4px;
+  text-align: center;
+}
+
+#button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  transform: translateY(580px);
+  position: fixed;
+}
+
+#button .buttons {
+  margin-bottom: 10px;
+  width: 130px;
+  padding: 8px 15px;
+  border: 3px solid;
+  font-size: 17px;
+  font-weight: 700;
+  border-radius: 20px;
+}
+
+#button #next {
+  background-color: #ff0062;
+  border-color: #fa0563;
+  color: white;
+  margin-right: 25%;
+}
+
+#button #next:hover {
+  background-color: #ed005b;
+  cursor: pointer;
+  transition-duration: 0.1s;
+}
+
+body {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 6s ease infinite;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

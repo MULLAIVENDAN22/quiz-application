@@ -1,0 +1,104 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#main {
+  height: 90vh;
+  width: 25vw;
+  padding: 20px 30px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 35px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 20px;
+}
+
+#main #logo {
+  display: inline;
+  height: 70px;
+  width: auto;
+}
+
+#main h1,
+h2,
+h6 {
+  text-align: center;
+}
+
+#main h1 {
+  color: #1084a4ca;
+  font-weight: 700;
+  font-size: 40px;
+  margin-bottom: 2px;
+}
+
+#main h2 {
+  font-size: 28px;
+  font-weight: 550;
+  margin-bottom: 4px;
+}
+
+#main h6 {
+  color: #969595;
+  margin-bottom: 20px;
+  font-size: 15px;
+}
+
+#instruction {
+  padding: 25px;
+}
+
+#button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#button .buttons {
+  margin-bottom: 20px;
+  width: 130px;
+  padding: 8px 15px;
+  border: 3px solid;
+  font-size: 17px;
+  font-weight: 700;
+  border-radius: 20px;
+}
+
+#button #start {
+  background-color: #ff0062;
+  border-color: #fa0563;
+  color: white;
+}
+
+#button #start:hover {
+  background-color: #ed005b;
+  cursor: pointer;
+  transition-duration: 0.1s;
+}
+
+body {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 6s ease infinite;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="import.css" />
+    <title>Quiz Application</title>
+  </head>
+  <body>
+    <div id="main">
+      <img id="logo" src="/public/images/logo.jpeg" alt="Logo" />
+      <h1>Bright Campus</h1>
+      <h6>Turning Mirror Into Windows</h6>
+      <h2>Quiz Application</h2>
+      <div id="forms">
+        <div class="input-container">
+          <input type="text" id="username" required autocomplete="off" />
+          <label for="username" class="label">Username</label>
+          <div class="underline"></div>
+        </div>
+        <div class="input-container">
+          <input type="password" id="password" required autocomplete="off" />
+          <label for="password" class="label">Password</label>
+          <div class="underline"></div>
+        </div>
+        <div class="input-container">
+          <input
+            type="password"
+            id="New-password"
+            required
+            autocomplete="off"
+          />
+          <label for="New-password" class="label">Confirm Password</label>
+          <div class="underline"></div>
+        </div>
+        <div id="matching1" class="hide">Invalid Username</div>
+        <div id="matching2" class="hide">Password does not match</div>
+        <div id="matching3" class="hide">Please fill in the details</div>
+        <div id="button">
+          <button id="login" class="buttons">Submit</button>
+        </div>
+      </div>
+    </div>
+    <script defer>
+      document.getElementById("login").addEventListener("click", async (e) => {
+        e.preventDefault();
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+        const newpassword = document.getElementById("New-password").value;
+        const matcher1 = document.getElementById("matching1");
+        const matcher2 = document.getElementById("matching2");
+        const matcher3 = document.getElementById("matching3");
+        matcher1.classList.add("hide");
+        matcher2.classList.add("hide");
+        matcher3.classList.add("hide");
+
+        function isValidEmail(username) {
+          const pattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+          return pattern.test(username);
+        }
+
+        if (!isValidEmail(username)) {
+          matcher1.classList.remove("hide");
+        } else if (password === "" || newpassword === "") {
+          matcher3.classList.remove("hide");
+        } else if (password !== newpassword) {
+          matcher2.classList.remove("hide");
+        } else {
+          try {
+            const fetchResponse = await fetch(
+              "http://localhost:3000/userDetails"
+            );
+            if (!fetchResponse.ok) {
+              throw new Error("Network response was not ok");
+            }
+            const users = await fetchResponse.json();
+            const existingUser = users.find(
+              (user) => user.username === username
+            );
+
+            if (existingUser) {
+              try {
+                const updateResponse = await fetch(
+                  "http://localhost:3000/userDetails",
+                  {
+                    method: "PUT",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ username, password: newpassword }),
+                  }
+                );
+
+                if (!updateResponse.ok) {
+                  throw new Error("Network response was not ok");
+                }
+
+                const result = await updateResponse.json();
+                console.log(result.message);
+                console.log("password changed");
+
+                window.location.href = "/src/index.html";
+              } catch (error) {
+                console.error("Error updating user:", error);
+                alert("Error: " + error.message);
+              }
+            } else {
+              try {
+                const marks = 0;
+                const action = "inactive";
+
+                const createResponse = await fetch(
+                  "http://localhost:3000/userDetails",
+                  {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ username, password, marks, action }),
+                  }
+                );
+
+                if (!createResponse.ok) {
+                  throw new Error("Network response was not ok");
+                }
+
+                const result = await createResponse.json();
+                console.log(result.message);
+                window.location.href = "/src/index.html";
+              } catch (error) {
+                console.error("Error creating user:", error);
+                alert("Error: " + error.message);
+              }
+            }
+          } catch (error) {
+            console.error("Error fetching user details:", error);
+            alert("Error: " + error.message);
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

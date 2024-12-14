@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/src/index.css" />
+    <link rel="stylesheet" href="/src/import.css" />
+    <title>Quiz Application</title>
+  </head>
+  <body>
+    <div id="main">
+      <img id="logo" src="/public/images/logo.jpeg" alt="" srcset="" />
+      <h1>Bright Campus</h1>
+      <h6>Turning Mirror Into Windows</h6>
+      <h2>Quiz Application</h2>
+      <div id="forms">
+        <div class="input-container">
+          <input type="text" id="username" autocomplete="off" />
+          <label for="username" class="label">Username</label>
+          <div class="underline"></div>
+        </div>
+        <div class="input-container">
+          <input type="password" id="password" autocomplete="off" />
+          <label for="password" class="label">Password</label>
+          <div class="underline"></div>
+        </div>
+
+        <button id="reset">Reset Password</button>
+
+        <div id="matching1" class="hide">Invalid Username Or Password</div>
+        <div id="matching3" class="hide">Please fill the details</div>
+
+        <div id="button">
+          <button id="login" class="buttons">Login</button>
+          <button id="signUp" class="buttons">Sign Up</button>
+        </div>
+      </div>
+    </div>
+    <script src="/src/index.js" defer></script>
+  </body>
+</html>
